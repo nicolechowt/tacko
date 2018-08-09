@@ -1,0 +1,10 @@
+.goals {
+	display: flex;
+	height: 100%;
+}
+
+.goalItem {
+	width: 200px;
+	height: 100px;
+	margin: auto;
+}
