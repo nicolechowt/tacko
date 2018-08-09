@@ -1,0 +1,18 @@
+[{
+    "id": 1,
+    "goalName": "Activity",
+    "goal": "Gym - 4 times a week.",
+    "goalMet": 3
+},
+{
+    "id": 2,
+    "goalName": "Water",
+    "goal": "110oz a day",
+    "goalMet": 25
+},
+{
+    "id": 3,
+    "goalName": "Sleep",
+    "goal": "7 hours of sleep",
+    "goalMet": 15
+}]
