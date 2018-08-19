@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
 
-
 class ProgressArc extends Component {
+
+	displayName: 'ProgressArc';
+
+	propTypes: {
+		id: PropTypes.string,
+		height: PropTypes.number,
+		width: PropTypes.number,
+		innerRadius: PropTypes.number,
+		outerRadius: PropTypes.number,
+		backgroundColor: PropTypes.string,
+		foregroundColor: PropTypes.string,
+		percentComplete: PropTypes.number
+	}
+
 	componentDidMount() {
 		const context = this.setContext();
 		this.setBackground(context);
@@ -11,20 +24,20 @@ class ProgressArc extends Component {
 
 	//create SVG canvas to draw visualization
 	setContext() {
-		return d3.select(this.refs.arc)
-			.append('svg')
-			.attr('height','300px')
-			.attr('width', '300px')
-			.attr('id', 'd3-arc')
-			.append('g')
-			.attr('transform',`translate(150,150)`);
+		const { height, width, id} = this.props;
+	    return d3.select(this.refs.arc).append('svg')
+	      .attr('height', height)
+	      .attr('width', width)
+	      .attr('id', id)
+	      .append('g')
+	      .attr('transform', `translate(${height / 2}, ${width / 2})`);
 	}
 
 	//append background on top of context
 	setBackground(context){
 		return context.append('path')
 		.datum({ endAngle: this.tau })
-		.style('fill','#e6e6e6')
+		.style('fill', this.props.backgroundColor)
 		.attr('d',this.arc());
 	}
 
@@ -32,8 +45,8 @@ class ProgressArc extends Component {
 	//append foreground
 	setForeground(context){
 		return context.append('path')
-			.datum({ endAngle: this.tau * 0.3})
-			.style('fill','#00ff00')
+			.datum({ endAngle: this.tau * this.props.percentComplete})
+			.style('fill', this.props.foregroundColor)
 			.attr('d',this.arc());
 	}
 
@@ -45,8 +58,8 @@ class ProgressArc extends Component {
 
 	arc(){
 		return d3.arc()
-			.innerRadius(80)
-			.outerRadius(110)
+			.innerRadius(this.props.innerRadius)
+			.outerRadius(this.props.outerRadius)
 			.startAngle(0)
 	}
 

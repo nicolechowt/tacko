@@ -11,9 +11,21 @@ let goal = goalData.map( (item,index) => {
 		<div className="goalItem" key={index}>
 			<h2>{item.goalName}</h2>
 			<p>{item.goal}</p>
+			<ProgressArc 
+				height={300}
+				width={300}
+				innerRadius={80}
+				outerRadius={110}
+				id="d3-arc"
+				backgroundColor="#e6e6e6"
+				foregroundColor="#cce1e3"
+				percentComplete={0.3}
+			/>
 		</div>
 	)
 })
+
+
 
 const today = moment().format("dddd, MMMM Do");
 
@@ -25,7 +37,6 @@ class Goals extends Component {
 				<div className="goals">
 					{goal}
 				</div>
-				<ProgressArc />
 			</div>
 		)
 	}
