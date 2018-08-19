@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import "./Goals.css";
 import moment from 'moment';
-// import goalData from './goalData';
+import ProgressArc from "./ProgressArc";
+
 
 const goalData = require('./goalData.json');
-
-// console.log(goalData);
 
 let goal = goalData.map( (item,index) => {
 	return(
 		<div className="goalItem" key={index}>
 			<h2>{item.goalName}</h2>
 			<p>{item.goal}</p>
-			<p>{item.goalMet}</p>
 		</div>
 	)
 })
@@ -27,6 +25,7 @@ class Goals extends Component {
 				<div className="goals">
 					{goal}
 				</div>
+				<ProgressArc />
 			</div>
 		)
 	}
