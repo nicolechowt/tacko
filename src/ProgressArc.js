@@ -45,7 +45,7 @@ class ProgressArc extends Component {
 	//append foreground
 	setForeground(context){
 		return context.append('path')
-			.datum({ endAngle: this.tau * this.props.percentComplete})
+			.datum({ endAngle: this.tau * this.props.goalPercentage })
 			.style('fill', this.props.foregroundColor)
 			.attr('d',this.arc());
 	}

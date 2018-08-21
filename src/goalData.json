@@ -1,18 +1,21 @@
 [{
     "id": 1,
     "goalName": "Activity",
-    "goal": "Go to the gym.",
-    "goalPercantage": 100
+    "goal": "Go to the gym",
+    "goalPercentage": 0.3,
+    "yesterdaysPercentage": 0.5
 },
 {
     "id": 2,
     "goalName": "Water",
     "goal": "110oz a day",
-    "goalPercantage": 70
+    "goalPercentage": 0.7,
+    "yesterdaysPercentage": 0.9
 },
 {
     "id": 3,
     "goalName": "Sleep",
     "goal": "7 hours of sleep",
-    "goalPercantage": 60
+    "goalPercentage": 0.8,
+    "yesterdaysPercentage": 0.6
 }]
